@@ -17,7 +17,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
   const [isLoading, setIsLoading] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
-  const [imageError, setImageError] = useState(false);
 
   // Validate product data
   if (!product || !product._id || !product.name || !product.price) {
@@ -72,26 +71,16 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   const getImageSrc = () => {
-    // First check if images array exists and has items
-    if (!product.images || !Array.isArray(product.images) || product.images.length === 0) {
-      console.warn('Using default image for product:', product._id);
+    if (!product.images?.length) {
       return '/products/default-product.jpg';
     }
     
-    // Get the first image path and ensure it's properly formatted
     const imagePath = product.images[0];
     if (!imagePath || typeof imagePath !== 'string') {
-      console.warn('Invalid image path for product:', product._id);
       return '/products/default-product.jpg';
     }
 
-    // Ensure the path is relative to the public directory
-    // If it doesn't start with /products/, add it
-    const normalizedPath = imagePath.startsWith('/') 
-      ? imagePath 
-      : `/products/${imagePath}`;
-
-    return normalizedPath;
+    return imagePath.startsWith('/') ? imagePath : `/products/${imagePath}`;
   };
 
   return (
@@ -116,7 +105,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           onLoadingComplete={() => setImageLoading(false)}
           onError={() => {
             setImageLoading(false);
-            setImageError(true);
             console.error(`Failed to load image for ${product.name}`);
           }}
         />
