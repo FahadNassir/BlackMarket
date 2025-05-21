@@ -20,7 +20,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
-    "sharp": "^0.34.2"
+    "sharp": "^0.34.2",
+    "vercel": "^42.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

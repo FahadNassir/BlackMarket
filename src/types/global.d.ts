@@ -1,6 +1,7 @@
-declare global {
-  var _mongoClientPromise: Promise<MongoClient> | undefined;
-}
 import { MongoClient } from 'mongodb';
+
+declare global {
+  let _mongoClientPromise: Promise<MongoClient> | undefined;
+}
 
 export {};

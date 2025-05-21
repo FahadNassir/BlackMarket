@@ -1,16 +1,12 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 import dotenv from 'dotenv';
 
 dotenv.config({ path: process.cwd() + '/.env.local' });
 
-let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
+const client: MongoClient = new MongoClient(process.env.MONGODB_URI!);
+const clientPromise: Promise<MongoClient> = client.connect();
 
-// Initialize client and connection
-client = new MongoClient(process.env.MONGODB_URI!);
-clientPromise = client.connect();
-
-export async function connectDB() {
+export async function connectDB(): Promise<Db> {
   try {
     // Get cached client
     const client = await clientPromise;
@@ -18,8 +14,8 @@ export async function connectDB() {
     // Verify connection
     await client.db().command({ ping: 1 });
     return client.db();
-  } catch (error) {
-    console.error('Database connection error:', error);
-    throw new Error('Failed to connect to database');
+  } catch (error: unknown) {
+    console.error('Error connecting to MongoDB:', error);
+    throw error;
   }
 }

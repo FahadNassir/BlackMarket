@@ -2,7 +2,6 @@ import ProductList from '@/components/ProductList';
 import { getProducts } from '@/lib/db';
 import { Product } from '@/models/Product';
 import { CartProvider } from '@/context/CartContext';
-import { CartSummary } from '@/components/CartSummary';
 import Navbar from '@/components/Navbar';
 
 export default async function Home() {
@@ -10,7 +9,7 @@ export default async function Home() {
 
   // Convert MongoDB documents to Product type
   const typedProducts = products.map(product => ({
-    _id: product._id.toString(),
+    _id: product._id ? product._id.toString() : '',
     name: product.name,
     description: product.description,
     price: product.price,

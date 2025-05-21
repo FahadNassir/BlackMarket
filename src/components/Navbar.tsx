@@ -1,12 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useCart } from '@/context/CartContext';
 import { CartSummary } from './CartSummary';
 
 export default function Navbar() {
-  const { totalItems } = useCart();
-
   return (
     <nav className="bg-black border-b border-white/10">
       <div className="container mx-auto px-4">

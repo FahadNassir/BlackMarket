@@ -1,9 +1,11 @@
+export type Category = 'Electronics' | 'Computers' | 'Mobile' | 'Accessories';
+
 export interface Product {
   _id?: string;
   name: string;
   description: string;
   price: number;
-  category: string;
+  category: Category;
   images: string[];
   stock: number;
   createdAt: Date;

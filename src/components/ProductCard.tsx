@@ -1,22 +1,12 @@
 import Image from 'next/image';
-import { Product } from '@/models/Product';
+import { Product, Category } from '@/models/Product';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 // Define allowed product categories
-const ALLOWED_CATEGORIES = ['Electronics', 'Computers', 'Mobile', 'Accessories'] as const;
-
-// Map product names to their image filenames
-const productImageMap: { [key: string]: string } = {
-  'Wireless Bluetooth Headphones': '/products/Wireless Bluetooth Headphones.jpg',
-  'Gaming Laptop': '/products/laptop.jpg',
-  'Wireless Mouse': '/products/mouse.jpg',
-  'Gaming Keyboard': '/products/keyboard.jpg',
-  'Smartphone': '/products/smartphone.jpg',
-  'Smartwatch': '/products/smartwatch.jpg',
-};
+const ALLOWED_CATEGORIES: Category[] = ['Electronics', 'Computers', 'Mobile', 'Accessories'] as const;
 
 interface ProductCardProps {
   product: Product;
@@ -41,7 +31,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   // Validate category
-  if (!ALLOWED_CATEGORIES.includes(product.category as any)) {
+  if (!ALLOWED_CATEGORIES.includes(product.category)) {
     console.warn(`Unknown category: ${product.category}`);
   }
 
