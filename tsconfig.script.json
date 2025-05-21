@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["script/**/*.ts"],
+  "exclude": [],
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ES2017",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "strict": true,
+    "types": ["node", "dotenv"]
+  },
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

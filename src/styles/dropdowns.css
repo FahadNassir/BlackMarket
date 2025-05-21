@@ -1,0 +1,20 @@
+/* Dropdown styles */
+.select-dropdown {
+  @apply bg-black/5 border border-white/20 text-white rounded-full px-4 py-2 shadow-sm;
+}
+
+.select-dropdown:focus {
+  @apply outline-none ring-2 ring-white ring-offset-2 ring-offset-black;
+}
+
+.select-dropdown option {
+  @apply bg-black/5 text-white border-t border-white/20;
+}
+
+.select-dropdown option:first-child {
+  @apply border-t-0;
+}
+
+.select-dropdown option:hover {
+  @apply bg-white text-black;
+}
