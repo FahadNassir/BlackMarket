@@ -72,7 +72,8 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   const getImageSrc = () => {
-    if (imageError || !product.images || product.images.length === 0) {
+    // First check if images array exists and has items
+    if (!product.images || !Array.isArray(product.images) || product.images.length === 0) {
       console.warn('Using default image for product:', product._id);
       return '/products/default-product.jpg';
     }
