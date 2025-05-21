@@ -79,8 +79,8 @@ export default function ProductCard({ product }: ProductCardProps) {
     
     // Get the first image path and ensure it's properly formatted
     const imagePath = product.images[0];
-    if (!imagePath) {
-      console.warn('Empty image path for product:', product._id);
+    if (!imagePath || typeof imagePath !== 'string') {
+      console.warn('Invalid image path for product:', product._id);
       return '/products/default-product.jpg';
     }
 
