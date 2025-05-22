@@ -13,6 +13,7 @@ interface CartContextType {
   addToCart: (product: Product, quantity: number) => Promise<void>;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
+  clearCart: () => void;
   totalItems: number;
   totalPrice: number;
 }
@@ -22,6 +23,13 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
+
+  const clearCart = () => {
+    setItems([]);
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('cart');
+    }
+  };
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -86,6 +94,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       addToCart,
       removeFromCart,
       updateQuantity,
+      clearCart,
       totalItems,
       totalPrice
     }}>
