@@ -80,7 +80,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       return '/products/default-product.jpg';
     }
 
-    return imagePath.startsWith('/') ? imagePath : `/products/${imagePath}`;
+    // Ensure imagePath is a string before using startsWith
+    const imagePathStr = String(imagePath);
+    return imagePathStr.startsWith('/') ? imagePathStr : `/products/${imagePathStr}`;
   };
 
   return (
@@ -102,7 +104,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             imageLoading ? 'opacity-0' : 'opacity-100'
           }`}
           priority
-          onLoadingComplete={() => setImageLoading(false)}
+          onLoad={() => setImageLoading(false)}
           onError={() => {
             setImageLoading(false);
             console.error(`Failed to load image for ${product.name}`);
