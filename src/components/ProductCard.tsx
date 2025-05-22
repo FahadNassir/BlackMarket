@@ -82,12 +82,13 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     // Ensure imagePath is a string before using startsWith
     const imagePathStr = String(imagePath);
+    if (!imagePathStr) return '';
     return imagePathStr.startsWith('/') ? imagePathStr : `/products/${imagePathStr}`;
   };
 
   return (
     <div 
-      className="bg-black/5 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-white/10 w-full"
+      className="bg-black bg-opacity-50 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-white/10 w-full"
       role="article"
       aria-label={`Product: ${product.name}`}
     >

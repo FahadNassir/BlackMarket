@@ -78,7 +78,7 @@ export default function ProductList({ products, isLoading = false }: ProductList
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {Array.from({ length: 8 }).map((_, index) => (
-            <div key={index} className="bg-black/5 rounded-xl animate-pulse">
+            <div key={index} className="bg-black bg-opacity-5 rounded-xl animate-pulse">
               <div className="aspect-square bg-gray-800/20 rounded-t-xl" />
               <div className="p-4 space-y-3">
                 <div className="h-4 bg-gray-800/20 rounded w-3/4" />
@@ -94,7 +94,7 @@ export default function ProductList({ products, isLoading = false }: ProductList
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="bg-black/5 border border-white/10 rounded-xl p-6 mb-8">
+      <div className="bg-black bg-opacity-5 border border-white/10 rounded-xl p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="relative">
             <input
@@ -102,8 +102,8 @@ export default function ProductList({ products, isLoading = false }: ProductList
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg bg-black/10 text-white placeholder-gray-400 
-                focus:outline-none focus:ring-2 focus:ring-white border border-white/20"
+              className="w-full px-4 py-3 rounded-lg bg-opacity-10 text-white placeholder-gray-400 
+                focus:outline-none focus:ring-2 focus:ring-white border border-opacity-20"
               aria-label="Search products"
             />
           </div>

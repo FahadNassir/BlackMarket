@@ -1,20 +1,20 @@
 import { MongoClient, Db } from 'mongodb';
-import dotenv from 'dotenv';
 
-dotenv.config({ path: process.cwd() + '/.env.local' });
+const uri = process.env.MONGODB_URI;
 
-const client: MongoClient = new MongoClient(process.env.MONGODB_URI!);
+if (!uri) {
+  throw new Error('MONGODB_URI is not defined in environment variables');
+}
+
+const client: MongoClient = new MongoClient(uri);
 const clientPromise: Promise<MongoClient> = client.connect();
 
 export async function connectDB(): Promise<Db> {
   try {
-    // Get cached client
     const client = await clientPromise;
-    
-    // Verify connection
     await client.db().command({ ping: 1 });
     return client.db();
-  } catch (error: unknown) {
+  } catch (error) {
     console.error('Error connecting to MongoDB:', error);
     throw error;
   }

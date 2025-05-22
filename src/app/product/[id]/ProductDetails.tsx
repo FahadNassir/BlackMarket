@@ -63,7 +63,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             </svg>
             Back to Products
           </Link>
-          <div className="bg-black/5 rounded-xl p-6 border border-white/10 shadow-lg shadow-white/5">
+          <div className="bg-black bg-opacity-5 rounded-xl p-6 border border-white/10 shadow-lg shadow-white/5">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="flex-1">
                 <div className="relative aspect-square bg-gray-800 rounded-lg overflow-hidden">
