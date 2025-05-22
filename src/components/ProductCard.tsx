@@ -88,7 +88,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div 
-      className="bg-black bg-opacity-50 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-white/10 w-full"
+      className="bg-black/50 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-white/10 w-full"
       role="article"
       aria-label={`Product: ${product.name}`}
     >
