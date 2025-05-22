@@ -1,9 +1,12 @@
-import { connectDB } from '../src/lib/db';
+import { connectDB } from '../src/lib/mongodb.server';
 import { Product } from '../src/models/Product';
 import dotenv from 'dotenv';
 
 // Load environment variables from .env.local
-dotenv.config({ path:'.env' });
+dotenv.config({ path: '.env.local' });
+
+// Ensure environment variables are loaded before MongoDB connection
+console.log('Environment variables loaded:', process.env.MONGODB_URI ? 'Yes' : 'No');
 
 const sampleProducts: Omit<Product, '_id'>[] = [
   {

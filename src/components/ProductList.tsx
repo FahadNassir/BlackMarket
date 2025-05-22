@@ -111,7 +111,7 @@ export default function ProductList({ products, isLoading = false }: ProductList
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="select-dropdown"
+            className="select-dropdown bg-black"
             aria-label="Filter by category"
           >
             <option value="">All Categories</option>
@@ -123,7 +123,7 @@ export default function ProductList({ products, isLoading = false }: ProductList
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className="select-dropdown"
+            className="select-dropdown bg-black"
             aria-label="Sort products"
           >
             <option value="">Sort by</option>
