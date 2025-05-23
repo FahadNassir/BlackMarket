@@ -1,19 +1,19 @@
 import { MongoClient, Db } from 'mongodb';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: '.env.local' });
 
 const uri = process.env.MONGODB_URI;
 
-if (!uri) {
-  console.error('MONGODB_URI is not defined. Please set it in your environment variables.');
-  process.exit(1);
-}
+const client: MongoClient = new MongoClient(uri || '', {
+  tlsAllowInvalidCertificates: true, // This is only for Vercel build time
+  serverSelectionTimeoutMS: 5000,     // Timeout after 5 seconds
+});
 
-const client: MongoClient = new MongoClient(uri);
 const clientPromise: Promise<MongoClient> = client.connect();
 
 export async function connectDB(): Promise<Db> {
+  if (!uri || process.env.VERCEL === '1') {
+    throw new Error('MongoDB connection not available during build time');
+  }
+
   try {
     const client = await clientPromise;
     await client.db().command({ ping: 1 });
