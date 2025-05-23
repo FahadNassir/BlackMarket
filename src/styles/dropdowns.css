@@ -1,20 +1,36 @@
 /* Dropdown styles */
 .select-dropdown {
-  @apply bg-black/5 border border-white/20 text-white rounded-full px-4 py-2 shadow-sm;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  /* Move the dropdown arrow further to the left */
+  padding-right: 3rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
 }
 
 .select-dropdown:focus {
-  @apply outline-none ring-2 ring-white ring-offset-2 ring-offset-black;
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .select-dropdown option {
-  @apply bg-black/5 text-white border-t border-white/20;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .select-dropdown option:first-child {
-  @apply border-t-0;
+  border-top: 0;
 }
 
 .select-dropdown option:hover {
-  @apply bg-white text-black;
+  background-color: white;
+  color: black;
 }

@@ -78,7 +78,7 @@ export default function ShippingForm({
             id="fullName"
             value={shippingInfo.fullName}
             onChange={handleChange}
-            className={`w-full p-2 border border-white/10 rounded ${errors.fullName ? 'border-red-500' : ''}`}
+            className={`w-full p-3 border border-white/10 rounded bg-black text-white ${errors.fullName ? 'border-red-500' : ''}`}
             placeholder="Full Name"
           />
           {errors.fullName && (
@@ -94,7 +94,7 @@ export default function ShippingForm({
             id="email"
             value={shippingInfo.email}
             onChange={handleChange}
-            className={`w-full p-2 border border-white/10 rounded ${errors.email ? 'border-red-500' : ''}`}
+            className={`w-full p-3 border border-white/10 rounded bg-black text-white ${errors.email ? 'border-red-500' : ''}`}
             placeholder="Email"
             autoComplete="email"
           />
@@ -111,7 +111,7 @@ export default function ShippingForm({
             id="phone"
             value={shippingInfo.phone}
             onChange={handleChange}
-            className={`w-full p-2 border border-white/10 rounded ${errors.phone ? 'border-red-500' : ''}`}
+            className={`w-full p-3 border border-white/10 rounded bg-black text-white ${errors.phone ? 'border-red-500' : ''}`}
             placeholder="Phone"
             autoComplete="tel"
           />
@@ -127,7 +127,7 @@ export default function ShippingForm({
             id="address"
             value={shippingInfo.address}
             onChange={handleChange}
-            className="w-full p-2 border border-white/10 rounded h-24 bg-black text-white"
+            className="w-full p-3 border border-white/10 rounded h-24 bg-black text-white"
             placeholder="Address"
             autoComplete="street-address"
           ></textarea>
@@ -146,7 +146,7 @@ export default function ShippingForm({
                 id="city"
                 value={shippingInfo.city}
                 onChange={handleChange}
-                className={`mt-1 block w-full rounded-md border border-white/10 ${errors.city ? 'border-red-500' : ''}`}
+                className={`mt-1 block w-full rounded-md border border-white/10 bg-black text-white p-3 ${errors.city ? 'border-red-500' : ''}`}
                 required
                 autoComplete="address-level2"
               />
@@ -165,7 +165,7 @@ export default function ShippingForm({
                 id="postalCode"
                 value={shippingInfo.postalCode}
                 onChange={handleChange}
-                className={`mt-1 block w-full rounded-md border border-white/10 ${
+                className={`mt-1 block w-full rounded-md border border-white/10 bg-black text-white p-4 ${
                   errors.postalCode
                     ? 'border-red-500'
                     : ''
@@ -188,7 +188,7 @@ export default function ShippingForm({
               id="country"
               value={shippingInfo.country}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md border border-white/10 ${errors.country ? 'border-red-500' : ''}`}
+              className={`mt-1 block w-full rounded-md border border-white/10 bg-black text-white p-3 ${errors.country ? 'border-red-500' : ''}`}
               required
               autoComplete="country"
             />

@@ -4,6 +4,9 @@ import { Product } from '@/models/Product';
 import { CartProvider } from '@/context/CartContext';
 import Navbar from '@/components/Navbar';
 
+export const dynamic = "force-dynamic";
+
+
 export default async function Home() {
   const products = await getProducts();
 
